@@ -1143,6 +1143,14 @@ os_parsers:
     os_replacement: 'Chrome OS'
 
   ##########
+  # UnityPlayer
+  ##########
+  - regex: 'UnityPlayer/([0-9]\.[0-9])\.([0-9a-zA-Z]+)+'
+    os_replacement: 'UnityPlayer'
+    os_v1_replacement: '$1'
+    os_v2_replacement: '$2'
+  
+  ##########
   # Linux distros
   ##########
   - regex: '([Dd]ebian)'
@@ -1442,7 +1450,11 @@ device_parsers:
     device_replacement: 'Alcatel One Touch 918D'
     brand_replacement: 'Alcatel'
     model_replacement: 'One Touch 918D'
-
+  - regex: '; *(9024O) Build'
+    device_replacement: '$1'
+    brand_replacement: 'Alcatel'
+    model_replacement: '$1'
+    
   #########
   # Allfine
   # @ref: http://www.myallfine.com/Products.asp
@@ -1747,6 +1759,14 @@ device_parsers:
   - regex: '; *(TOUCH\d[^;/]+) Build'
     device_replacement: '$1'
     brand_replacement: 'Blusens'
+    model_replacement: '$1'
+    
+  #########
+  # Blackview
+  #########
+  - regex: '; *(BV[\w]+) Build/'
+    device_replacement: '$1'
+    brand_replacement: 'Blackview'
     model_replacement: '$1'
 
   #########
@@ -2192,7 +2212,7 @@ device_parsers:
     device_replacement: '$1'
     brand_replacement: 'Google'
     model_replacement: '$1'
-  - regex: '; *(Pixel \w+) Build'
+  - regex: '; *(Pixel( \w+)?) Build'
     device_replacement: '$1'
     brand_replacement: 'Google'
     model_replacement: '$1'
@@ -2795,6 +2815,14 @@ device_parsers:
     device_replacement: '$1'
     brand_replacement: 'Kyocera'
     model_replacement: '$1'
+    
+  #########
+  # LeEco
+  #########
+  - regex: '; *(Le X[0-9]+|LEX[0-9]+) Build/'
+    device_replacement: '$1'
+    brand_replacement: 'LeEco'
+    model_replacement: '$1'  
 
   #########
   # Lava
@@ -2906,6 +2934,10 @@ device_parsers:
     device_replacement: '$1 $2'
     brand_replacement: 'LG'
     model_replacement: '$2'
+  - regex: '; *(RS988) Build/'
+    device_replacement: '$1'
+    brand_replacement: 'LG'
+    model_replacement: '$1'  
   - regex: '(Web0S); Linux/(SmartTV)'
     device_replacement: 'LG $1 $2'
     brand_replacement: 'LG'
@@ -2987,7 +3019,7 @@ device_parsers:
   # Meizu
   # @ref: http://www.meizu.com
   #########
-  - regex: '; *(M030|M031|M035|M040|M065|m9) Build'
+  - regex: '; *(M030|M031|M035|M040|M065|m9|U20) Build'
     device_replacement: 'Meizu $1'
     brand_replacement: 'Meizu'
     model_replacement: '$1'
@@ -2995,7 +3027,7 @@ device_parsers:
     device_replacement: 'Meizu $1'
     brand_replacement: 'Meizu'
     model_replacement: '$1'
-
+  
   #########
   # Micromax
   # @ref: http://www.micromaxinfo.com
@@ -3251,7 +3283,7 @@ device_parsers:
   # Oppo
   # @ref: http://en.oppo.com/products/
   #########
-  - regex: '; *(Find ?(?:5|7a)|R8[012]\d{1,2}|T703\d{0,1}|U70\d{1,2}T?|X90\d{1,2}) Build'
+  - regex: '; *(Find ?(?:5|7a)|R8[012]\d{1,2}|T703\d{0,1}|U70\d{1,2}T?|X90\d{1,2}|CPH\d{4}) Build'
     device_replacement: 'Oppo $1'
     brand_replacement: 'Oppo'
     model_replacement: '$1'
@@ -3422,6 +3454,14 @@ device_parsers:
     device_replacement: '$1'
     brand_replacement: 'Ployer'
     model_replacement: '$1'
+    
+  #########
+  # PLUM
+  #########
+  - regex: '; *(plum( [a-zA-Z0-9]+)*) Build/'
+    regex_flag: 'i'
+    device_replacement: '$1'
+    brand_replacement: 'PLUM'
 
   #########
   # Polaroid/ Acho
@@ -3772,6 +3812,10 @@ device_parsers:
     device_replacement: '$1'
     brand_replacement: 'Sony'
     model_replacement: '$1'
+  - regex: '; *([C-G][0-9]{4}) Build'
+    device_replacement: '$1'
+    brand_replacement: 'Sony'
+    model_replacement: '$1'
   - regex: '; *(SGP\d{3}|SGPT\d{2}) Build'
     device_replacement: '$1'
     brand_replacement: 'Sony'
@@ -4098,6 +4142,10 @@ device_parsers:
     device_replacement: '$1 $2'
     brand_replacement: '$1'
     model_replacement: '$2'
+  - regex: '; *(VFD [0-9]+) Build'
+    device_replacement: '$1'
+    brand_replacement: 'Vodafone'
+    model_replacement: '$1'  
 
   #########
   # Walton
@@ -4182,7 +4230,7 @@ device_parsers:
   # XiaoMi
   # @ref: http://www.xiaomi.com/event/buyphone
   #########
-  - regex: '; *((MI|HM|MI-ONE|Redmi)[ -](NOTE |Note )?[^;/]*) (Build|MIUI)/'
+  - regex: '; *((((MI|HM|MI-ONE|Redmi)[ -](NOTE |Note )?)|MIX)[^;/]*) (Build|MIUI)/'
     device_replacement: 'XiaoMi $1'
     brand_replacement: 'XiaoMi'
     model_replacement: '$1'
